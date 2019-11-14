@@ -23,6 +23,30 @@ class MainActivityTest : AcceptanceTest<MainActivity>(MainActivity::class.java) 
         compareScreenshot(activity)
     }
 
+    @Test
+    fun showsThereAreSomeSuperHeroes() {
+        givenThereAreSomeSuperHeroes(10)
+        val activity = startActivity()
+
+        compareScreenshot(activity)
+    }
+
+    @Test
+    fun showsThereAreSomeAvengers() {
+        givenThereAreSomeSuperHeroes(10, true)
+        val activity = startActivity()
+
+        compareScreenshot(activity)
+    }
+
+    @Test
+    fun showsOnlyOneAvenger() {
+        givenThereAreSomeSuperHeroes(1, true)
+        val activity = startActivity()
+
+        compareScreenshot(activity)
+    }
+
     private fun givenThereAreSomeSuperHeroes(
         numberOfSuperHeroes: Int = 1,
         avengers: Boolean = false
